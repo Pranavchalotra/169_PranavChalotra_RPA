@@ -1,0 +1,176 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="project" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="951.2,1648" sap2010:WorkflowViewState.IdRef="project_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="23">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="project" sap:VirtualizedContainerService.HintSize="931.2,1588" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="889.6,1395.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Book1.xlsx">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="856,1285.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="att" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[att]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="814.4,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1" />
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[att]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="814.4,1092.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="764.8,944" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="ui:GenericValue" Name="precent" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="value" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="Attendence" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="percentage" />
+                      <Variable x:TypeArguments="x:String" Name="pass" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[percentage]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[row(3).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[value]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[convert.ToInt32(percentage.tostring)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="723.2,22.4" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5vmnrteG4k26VQUthk+2gQAAAAACAAAAAAAQZgAAAAEAACAAAADDxvfnk5m0tva0e6MSArV1kF+yWEh5d6Cs53wBcfgn5QAAAAAOgAAAAAIAACAAAACtHO2jgeWcWz5bpx4bVbvvtlv6qkl/6Z6XQT8Wd0/u0BAAAADXnW9np4yJL2nGa30jCbpsQAAAAFk2o6PaCgmvLCzmv3Aa/Amn7ALWya75b6QtajTq6p9qZyqb2b8SteKLTaQp9iWtVCSFQ2112g2YD6veaNNKeTs=" Result="[pass]" />
+                    <If Condition="[value&lt;=75]" sap:VirtualizedContainerService.HintSize="723.2,588.8" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="375.2,439.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="ui:GenericValue" Name="name" />
+                            <Variable x:TypeArguments="ui:GenericValue" Name="mail" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[name]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">[row(0).tostring]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[mail]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">[row(2).Tostring]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[name+&quot;,&quot;+Environment.NewLine+&quot;Your attendence is below 75% percent. So, Please attence your classes regularly. &quot;+Environment.NewLine+Environment.NewLine+&quot;Faculity Incharge &quot;]" DisplayName="Send SMTP Mail Message" Email="chalotrapranav@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[pass]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Attendence stortage" To="[mail]">
+                            <ui:SendMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                            </ui:SendMail.Files>
+                          </ui:SendMail>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,255.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="ui:GenericValue" Name="ename" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[ename]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">[row(0).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262.4,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[ename]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="889.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;done&quot;]" />
+  </Sequence>
+</Activity>
